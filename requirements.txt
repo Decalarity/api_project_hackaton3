@@ -9,3 +9,4 @@ redis
 celery
 python-slugify
 django-filter
+transliterate
