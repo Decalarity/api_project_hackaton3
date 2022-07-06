@@ -20,6 +20,8 @@ from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 from rest_framework import permissions
 
+
+
 from django.conf import settings
 
 
@@ -43,4 +45,8 @@ urlpatterns = [
     path('order/', include('apps.order.urls')),
     path('product/', include('apps.product.urls')),
     path('review/', include('apps.review.urls')),
+    path('cart/', include('apps.cart.urls')),
+
+
+    
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
