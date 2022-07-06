@@ -13,10 +13,10 @@ class Product(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='Category')
     in_stock = models.BooleanField(default=True)
     quantity = models.PositiveIntegerField(default=1)
-    imgs = models.ImageField(blank=True, null=True, upload_to='images', default="images/macbookpro13.jpeg")
+    imgs = models.ImageField(blank=True, null=True, upload_to='images', default="api_pic/wblogo.jpeg")
 
     def __str__(self):
-        return self.title
+        return self.product_name
 
 
 class ProductImage(models.Model):
@@ -24,6 +24,6 @@ class ProductImage(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='Image')
 
     def __str__(self):
-        return self.product.title
+        return self.product.product_name
 
 

@@ -8,7 +8,7 @@ User = get_user_model()
 class Category(models.Model):
     name = models.CharField(max_length=100)
     slug = models.SlugField(max_length=255, primary_key=True, unique=True, blank=True)
-    parent = models.ForeignKey('category', on_delete=models.CASCADE, related_name='children', blank=True, null=True)
+    # parent = models.ForeignKey('category', on_delete=models.CASCADE, related_name='children', blank=True, null=True)
 
     class Meta:
         verbose_name_plural = "Categories"

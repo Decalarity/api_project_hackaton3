@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     #lib
     'django_filters',
     'rest_framework',
+    'rest_framework.authtoken',
     'drf_yasg',
     #apps
     'apps.account',
@@ -51,6 +52,9 @@ INSTALLED_APPS = [
     'apps.product',
     'apps.category',
     'apps.review',
+    #cart
+    'apps.cart',
+    
 ]
 
 MIDDLEWARE = [
@@ -87,6 +91,8 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
+EASYCART_CART_CLASS = 'tests.common.Cart'
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -97,7 +103,7 @@ DATABASES = {
         'HOST': config('DB_HOST')
     }
 }
-
+AUTH_USER_MODEL = 'account.User'
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
@@ -158,11 +164,14 @@ REST_FRAMEWORK = {
     "PAGE_SIZE": 3,
 }
 
-TWILIO_SID = config('TWILIO_SID')
-TWILIO_AUTH_TOKEN = config('TWILIO_TOKEN')
-TWILIO_NUMBER = config('TWILIO_NUMBER')
+# TWILIO_SID = config('TWILIO_SID')
+# TWILIO_AUTH_TOKEN = config('TWILIO_TOKEN')
+# TWILIO_NUMBER = config('TWILIO_NUMBER')
 
-AUTH_USER_MODEL = 'account.CustomUser'
+
 #celery_settings
-CELERY_BROKER_URL = "redis://127.0.0.1:6379/0"
-CELERY_RESULT_BACKEND = "redis://127.0.0.1:6379/0"
+# CELERY_BROKER_URL = "redis://127.0.0.1:6379/0"
+# CELERY_RESULT_BACKEND = "redis://127.0.0.1:6379/0"
+
+#cart
+CART_SESSION_ID = 'cart'
